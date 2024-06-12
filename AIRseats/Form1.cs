@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using System.Data.Entity;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace AIRseats
 {
@@ -8,6 +10,7 @@ namespace AIRseats
     {
         SqlConnection connection = new SqlConnection("server=192.168.1.184; database=mydatabase; integrated security= true");
         Dictionary<string, Label> labelMap = new Dictionary<string, Label>();
+
         public Form1()
         {
             InitializeComponent();
@@ -16,6 +19,7 @@ namespace AIRseats
             labelMap.Add("co02", lbl2);
             labelMap.Add("co03", lbl3);
 
+            //Suscribe to events
             this.Load += new EventHandler(preLoad);
             btnasigne.Click += new EventHandler(preLoad);
             btnfree.Click += new EventHandler(preLoad);
@@ -23,6 +27,17 @@ namespace AIRseats
             this.Load += new EventHandler(txtload_Load);
             btnasigne.Click += new EventHandler(txtload_Load);
             btnfree.Click += new EventHandler(txtload_Load);
+            this.Load += new EventHandler(txtname1_Load);
+            btnasigne.Click += new EventHandler(txtname1_Load);
+            btnfree.Click += new EventHandler(txtname1_Load);
+            btnasigne.Click += new EventHandler(txtname2_Load);
+            btnasigne.Click += new EventHandler(txtname3_Load);
+            btnfree.Click += new EventHandler(txtname3_Load);
+            btnfree.Click += new EventHandler(txtname2_Load);
+            this.Load += new EventHandler(txtname3_Load);
+            this.Load += new EventHandler(txtname2_Load);
+
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -79,13 +94,15 @@ namespace AIRseats
 
             try
             {
-                string command = ("update airplane set isbusy=1 where code='" + txtcode.Text + "'");
+                string command = ("update airplane set isbusy=1, passenger='"+txtname.Text+"' where code='" + txtcode.Text + "'");
                 SqlCommand cmd2 = new SqlCommand(command, connection);
                 cmd2.ExecuteNonQuery();
+                txtname.Clear();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Has ocurred an critical error with database");
+                txtname.Clear();
             }
 
 
@@ -103,9 +120,10 @@ namespace AIRseats
             {
                 if (!string.IsNullOrEmpty(txtcode.Text))
                 {
-                    string command = ("update airplane set isbusy=0 where code='" + txtcode.Text + "'");
+                    string command = ("update airplane set isbusy=0, passenger = '' where code='" + txtcode.Text + "'");
                     SqlCommand cmd = new SqlCommand(command, connection);
                     cmd.ExecuteNonQuery();
+                    txtname.Clear();
                 }
                 else
                 {
@@ -115,6 +133,7 @@ namespace AIRseats
             catch (Exception ex)
             {
                 MessageBox.Show("Has ocurred an critical error with database", ex.Message);
+                txtname.Clear();
             }
             connection.Close();
         }
@@ -151,5 +170,40 @@ namespace AIRseats
             txtload.Text = count.ToString();
         }
 
+        private void txtname1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtname1_Load(object sender, EventArgs e) 
+        {
+            connection.Open();
+
+            string command = ("select passenger from airplane where code ='co01'");
+            SqlCommand cmd = new SqlCommand(command, connection);
+            string name = (string)cmd.ExecuteScalar();
+            connection.Close();
+            txtname1.Text = name.ToString();
+        }
+
+        private void txtname2_Load(object sender, EventArgs e) 
+        {
+            connection.Open();
+            string command = ("select passenger from airplane where code='co02'");
+            SqlCommand cmd = new SqlCommand(command, connection);
+            string name = (string)cmd.ExecuteScalar();
+            connection.Close();
+            txtname2.Text = name.ToString();
+        }
+
+        private void txtname3_Load(object sender, EventArgs e) 
+        {
+            connection.Open();
+            string command = ("select passenger from airplane where code='co03'");
+            SqlCommand cmd = new SqlCommand(command, connection);
+            string name = (string)cmd.ExecuteScalar();
+            connection.Close();
+            txtname3.Text = name.ToString();
+        }
     }
 }

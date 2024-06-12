@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\soporte MPOS\\source\\repos\\AIRseats\\AIRseats\\AIRseats.csproj": {}
+    "C:\\Users\\soporte MPOS\\source\\repos\\Clone\\AIRseats\\AIRseats.csproj": {}
   },
   "projects": {
-    "C:\\Users\\soporte MPOS\\source\\repos\\AIRseats\\AIRseats\\AIRseats.csproj": {
+    "C:\\Users\\soporte MPOS\\source\\repos\\Clone\\AIRseats\\AIRseats.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\soporte MPOS\\source\\repos\\AIRseats\\AIRseats\\AIRseats.csproj",
+        "projectUniqueName": "C:\\Users\\soporte MPOS\\source\\repos\\Clone\\AIRseats\\AIRseats.csproj",
         "projectName": "AIRseats",
-        "projectPath": "C:\\Users\\soporte MPOS\\source\\repos\\AIRseats\\AIRseats\\AIRseats.csproj",
+        "projectPath": "C:\\Users\\soporte MPOS\\source\\repos\\Clone\\AIRseats\\AIRseats.csproj",
         "packagesPath": "C:\\Users\\soporte MPOS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\soporte MPOS\\source\\repos\\AIRseats\\AIRseats\\obj\\",
+        "outputPath": "C:\\Users\\soporte MPOS\\source\\repos\\Clone\\AIRseats\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\soporte MPOS\\AppData\\Roaming\\NuGet\\NuGet.Config",

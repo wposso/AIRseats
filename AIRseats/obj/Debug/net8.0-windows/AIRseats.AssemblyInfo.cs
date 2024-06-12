@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AIRseats")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+709c03f92e0de951085848c8f040c04b421d8475")]
 [assembly: System.Reflection.AssemblyProductAttribute("AIRseats")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AIRseats")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
